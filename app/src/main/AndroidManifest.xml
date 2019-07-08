@@ -17,9 +17,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".CadastroActivity"
-            android:label="@string/title_activity_cadastro"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:name=".CadastroReceitas"
+            android:label="@string/title_activity_cadastro_receitas"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".CadastroReceitasActivity" />
+        <activity android:name=".ListaActivity" />
+        <activity android:name=".VisualizarActivity"></activity>
     </application>
 
 </manifest>
