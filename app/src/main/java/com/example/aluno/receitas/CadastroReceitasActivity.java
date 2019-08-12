@@ -34,12 +34,18 @@ ImageButton imgBtnFoto;
 
 
 
+    String receita;
+
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_receitas);
-
-
+        editTextNome= (EditText) findViewById(R.id.editTextNome);
+        receita = editTextNome.getText()+".recipe";
 
 
         btnCancel = (Button) findViewById(R.id.btnCancel);
