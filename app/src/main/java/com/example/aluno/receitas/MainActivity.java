@@ -8,7 +8,8 @@ import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity {
 
-ImageButton imgBtnCadastro;
+    ImageButton imgBtnCadastro;
+    ImageButton imgBtnLista;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,11 +22,20 @@ ImageButton imgBtnCadastro;
             @Override
             public void onClick(View v) {
                 launchCadastro();
-
-
-
             }
         });
+
+        imgBtnLista = (ImageButton) findViewById(R.id.imgBtnLista);
+
+        imgBtnLista.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                launchLista();
+            }
+        });
+
+
+
 
 
 
@@ -35,4 +45,10 @@ ImageButton imgBtnCadastro;
         Intent intent = new Intent(this, CadastroReceitasActivity.class);
         startActivity(intent);
     }
+    private void launchLista(){
+        Intent intent = new Intent(this, ListaActivity.class);
+        startActivity(intent);
+    }
+
+
 }

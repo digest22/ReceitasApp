@@ -7,9 +7,9 @@
     tools:context="com.example.aluno.receitas.VisualizarActivity">
 
     <Button
-        android:id="@+id/buttonVoltar"
+        android:id="@+id/btnVoltar"
         android:layout_width="153dp"
-        android:layout_height="wrap_content"
+        android:layout_height="47dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -17,22 +17,24 @@
         android:text="Voltar"
         app:layout_constraintBottom_toTopOf="@+id/scrollView4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/buttonExcluir"
+        app:layout_constraintEnd_toStartOf="@+id/btnExcluir"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/buttonExcluir"
+        android:id="@+id/btnExcluir"
         android:layout_width="155dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:text="Excluir"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/buttonVoltar"
+        app:layout_constraintStart_toEndOf="@+id/btnVoltar"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
