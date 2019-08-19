@@ -1,6 +1,8 @@
 package com.example.aluno.receitas;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -21,7 +23,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-public class CadastroReceitasActivity extends AppCompatActivity {
+public class CadastroReceitasActivity extends Activity {
 
     Button btnCancel;
     Button btnSalvar;
@@ -68,12 +70,59 @@ ImageButton imgBtnFoto;
             }
         });
 
+        imgBtnFoto = (ImageButton) findViewById(R.id.imgBtnFoto);
 
+        imgBtnFoto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                chamaCamera();
+            }
+        });
 
 
 
 
     }
+
+
+//    private static final int TIRAR_FOTO = 1020394857;
+    @SuppressLint("SimpleDateFormat")
+    public void chamaCamera() {
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        startActivityForResult(intent, 123);
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(requestCode == 123) {
+            if(resultCode == Activity.RESULT_OK) {
+
+//                        Colocar a thumb da foto no botão
+                        Bundle extras = data.getExtras();
+                        Bitmap imageBitmap = (Bitmap) extras.get("data");
+                        imgBtnFoto.setImageBitmap(imageBitmap);
+
+//                        Salvar a foto
+
+
+
+
+            } else {
+                Toast.makeText(this, "Não foi possível encontrar a foto.", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
     private void launchCancela(){
 
 
@@ -104,7 +153,7 @@ ImageButton imgBtnFoto;
 
 
 /*
-     PERMISSOES CAMERA
+     //PERMISSOES CAMERA
     private void getPermissions() {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED
                 || ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
@@ -128,7 +177,7 @@ ImageButton imgBtnFoto;
             }
         }
     }
-     PERMISSOES CAMERA FIM
+    // PERMISSOES CAMERA FIM
 
 
 
