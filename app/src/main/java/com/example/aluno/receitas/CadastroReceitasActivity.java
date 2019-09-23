@@ -31,6 +31,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 public class CadastroReceitasActivity extends Activity {
 
@@ -47,6 +48,7 @@ public class CadastroReceitasActivity extends Activity {
 
     String currentPhotoPath;
 
+    Button btnVer;
 
 
     @Override
@@ -90,12 +92,24 @@ public class CadastroReceitasActivity extends Activity {
                 editTextNome.setText("");
                 editTextIngredientes.setText("");
                 editTextModoPreparo.setText("");
-
-
-
                 //                launchSalvar();
             }
         });
+
+        btnVer = (Button) findViewById(R.id.btnVer);
+
+    btnVer.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            List<Receita> listaReceitas = Receita.listAll(Receita.class);
+
+            for (Receita r: listaReceitas) {
+                Toast.makeText(CadastroReceitasActivity.this, r.getNome(), Toast.LENGTH_SHORT).show();
+            }
+        }
+    });
+
+
         imgBtnFoto = (ImageButton) findViewById(R.id.imgBtnFoto);
         imgBtnFoto.setOnClickListener(new View.OnClickListener() {
             @Override
