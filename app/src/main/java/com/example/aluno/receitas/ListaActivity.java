@@ -5,18 +5,26 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 
 public class ListaActivity extends AppCompatActivity {
 
     Button btnVoltar;
     Button btnAdicionar;
-
+    ListView listV;
     Button btnTemp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista);
+
+        listV = (ListView) findViewById(R.id.listView);
+
+
+
+
+
 
         btnVoltar = (Button) findViewById(R.id.btnVoltar);
 
