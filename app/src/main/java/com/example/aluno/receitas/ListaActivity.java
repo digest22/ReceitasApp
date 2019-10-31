@@ -4,25 +4,42 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+
+import java.util.List;
 
 public class ListaActivity extends AppCompatActivity {
 
     Button btnVoltar;
     Button btnAdicionar;
-    ListView listV;
-    Button btnTemp;
+    ListView listItens;
+    Button btnReset;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista);
 
-        listV = (ListView) findViewById(R.id.listView);
+        listItens = (ListView) findViewById(R.id.listItens);
+
+        List<Receita> listaReceitas = Receita.listAll(Receita.class);
+
+//        String[] dados = new String[] { "Cupcake", "Donut", "Eclair", "Froyo", "Gingerbread",
+//                "Honeycomb", "Ice Cream Sandwich", "Jelly Bean",
+//                "KitKat", "Lollipop", "Marshmallow", "Nougat" };
 
 
+        String [] dados = new String[];
+        int i=1;
+        for (Receita dado : listaReceitas) {
+            dados[i] = dado.getNome();
+            i++;
+        }
 
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, dados);
+        listItens.setAdapter(adapter);
 
 
 
@@ -39,9 +56,9 @@ public class ListaActivity extends AppCompatActivity {
 
 
 
-        btnTemp = (Button) findViewById(R.id.btnTemp);
+        btnReset = (Button) findViewById(R.id.btnReset);
 
-        btnTemp.setOnClickListener(new View.OnClickListener() {
+        btnReset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
