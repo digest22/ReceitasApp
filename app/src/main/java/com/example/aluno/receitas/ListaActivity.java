@@ -26,24 +26,23 @@ public class ListaActivity extends AppCompatActivity {
 
         List<Receita> listaReceitas = Receita.listAll(Receita.class);
 
-//        String[] dados = new String[] { "Cupcake", "Donut", "Eclair", "Froyo", "Gingerbread",
-//                "Honeycomb", "Ice Cream Sandwich", "Jelly Bean",
-//                "KitKat", "Lollipop", "Marshmallow", "Nougat" };
 
+        String[] dados = new String[listaReceitas.size()];
+        int i = 1;
 
-        String [] dados = new String[];
-        int i=1;
-        for (Receita dado : listaReceitas) {
-            dados[i] = dado.getNome();
+//        App parou de funfionar; se comenta o for ele funciona. le items do bank pelo id normalmente; talvez erro ao ler a lista?
+        for (Receita r: listaReceitas){
+            dados[i] = r.getNome();
             i++;
         }
+
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, dados);
         listItens.setAdapter(adapter);
 
 
 
-        btnVoltar = (Button) findViewById(R.id.btnVoltar);
+    btnVoltar = (Button) findViewById(R.id.btnVoltar);
 
         btnVoltar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,6 +71,10 @@ public class ListaActivity extends AppCompatActivity {
 
 
         btnAdicionar = (Button) findViewById(R.id.btnAdicionar);
+
+
+
+
 
         btnAdicionar.setOnClickListener(new View.OnClickListener() {
             @Override
