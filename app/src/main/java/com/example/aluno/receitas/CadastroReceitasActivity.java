@@ -56,9 +56,9 @@ public class CadastroReceitasActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_receitas);
 
-//        SugarContext.init(getApplicationContext());
-//        SchemaGenerator schemaGenerator = new SchemaGenerator(this);
-//        schemaGenerator.createDatabase(new SugarDb(this).getDB());
+        SugarContext.init(getApplicationContext());
+        SchemaGenerator schemaGenerator = new SchemaGenerator(this);
+        schemaGenerator.createDatabase(new SugarDb(this).getDB());
 
 
 

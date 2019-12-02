@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -17,6 +19,7 @@ public class ListaActivity extends AppCompatActivity {
     ListView listItens;
     Button btnReset;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,22 +27,47 @@ public class ListaActivity extends AppCompatActivity {
 
         listItens = (ListView) findViewById(R.id.listItens);
 
+
         List<Receita> listaReceitas = Receita.listAll(Receita.class);
-
-
-        String[] dados = new String[listaReceitas.size()];
+        String[] dados = new String[listaReceitas.size()+1];
         int i = 1;
-
-//        App parou de funfionar; se comenta o for ele funciona. le items do bank pelo id normalmente; talvez erro ao ler a lista?
-        for (Receita r: listaReceitas){
+        String teste = "";
+        for (Receita r: listaReceitas) {
             dados[i] = r.getNome();
             i++;
+            Toast.makeText(this, r.getNome()+i, Toast.LENGTH_SHORT).show();
         }
 
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, dados);
-        listItens.setAdapter(adapter);
 
+        String[] PENS = new String[]{
+                "MONT Blanc",
+                "Gucci",
+                "Parker",
+                "Sailor",
+                "Porsche Design",
+                "Rotring",
+                "Sheaffer",
+                "Waterman"
+        };
+        listItens.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, PENS));
+
+
+
+
+//        String[] dados = new String[listaReceitas.size()];
+//        int i = 1;
+
+//        App parou de funfionar; se comenta o for ele funciona. le items do bank pelo id normalmente; talvez erro ao ler a lista?
+//        for (Receita r: listaReceitas){
+//            dados[i] = r.getNome();
+//            i++;
+//        }
+
+////
+//        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, dados);
+//        listItens.setAdapter(adapter);
+/* // */
 
 
     btnVoltar = (Button) findViewById(R.id.btnVoltar);
@@ -98,6 +126,7 @@ public class ListaActivity extends AppCompatActivity {
 
     private void launchVisualizar(){
         Intent intent = new Intent(this, VisualizarActivity.class);
+        intent.putExtra("idEnvio", 1);
         startActivity(intent);
     }
 
