@@ -161,7 +161,7 @@ public class CadastroReceitasActivity extends Activity {
             String nomeImagem = "Apresentação"+timeStamp+"_";
 
             File ifile= new File(Environment.getExternalStorageDirectory() + "/Livro_de_Receitas/Imagens/", nomeImagem+".png");
-            Toast.makeText(this, ifile.getAbsolutePath(), Toast.LENGTH_LONG).show();
+//            Toast.makeText(this, ifile.getAbsolutePath(), Toast.LENGTH_LONG).show();
 
             FileOutputStream outStream = new FileOutputStream(ifile);
             pBitmap.compress(Bitmap.CompressFormat.PNG, 100, outStream);

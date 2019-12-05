@@ -28,15 +28,15 @@ public class ListaActivity extends AppCompatActivity {
         listItens = (ListView) findViewById(R.id.listItens);
 
 
-        List<Receita> listaReceitas = Receita.listAll(Receita.class);
-        String[] dados = new String[listaReceitas.size()+1];
-        int i = 1;
-        String teste = "";
-        for (Receita r: listaReceitas) {
-            dados[i] = r.getNome();
-            i++;
-            Toast.makeText(this, r.getNome()+i, Toast.LENGTH_SHORT).show();
-        }
+//        List<Receita> listaReceitas = Receita.listAll(Receita.class);
+//        String[] dados = new String[listaReceitas.size()+1];
+//        int i = 1;
+//        String teste = "";
+//        for (Receita r: listaReceitas) {
+//            dados[i] = r.getNome();
+//            i++;
+//            Toast.makeText(this, r.getNome()+i, Toast.LENGTH_SHORT).show();
+//        }
 
 
 
@@ -126,7 +126,7 @@ public class ListaActivity extends AppCompatActivity {
 
     private void launchVisualizar(){
         Intent intent = new Intent(this, VisualizarActivity.class);
-        intent.putExtra("idEnvio", 1);
+        intent.putExtra("idEnvio", 2);
         startActivity(intent);
     }
 
